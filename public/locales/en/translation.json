@@ -65,9 +65,13 @@
     "title": "The skill",
     "lede": "The CLI does what is mechanical. The skill carries the judgment: read the artifacts, implement one route at a time against the endpoints that actually fired, and never invent what the capture did not see.",
     "claudeTitle": "Claude Code",
-    "codexTitle": "Codex, Gemini CLI, Copilot CLI",
-    "codexBody": "These runtimes read ~/.agents/skills as a cross-runtime alias, so the same directory serves all of them.",
-    "thenTitle": "Then just ask"
+    "codexTitle": "Codex",
+    "codexBody": "Codex reads ~/.codex/skills. It also honours ~/.agents/skills, the alias Gemini CLI and Copilot CLI share, so one install can serve several agents.",
+    "thenTitle": "Then just ask",
+    "installTitle": "Install it",
+    "installBody": "One command per runtime. It symlinks the skill, so it tracks the repository — and it is safe to re-run.",
+    "sharedTitle": "Gemini CLI · Copilot CLI",
+    "setupTitle": "Set up the CLI first"
   },
   "walkthrough": {
     "title": "Reversing an app, start to finish",

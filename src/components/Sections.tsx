@@ -136,6 +136,12 @@ cd ../xray_cli && bun install && bun link`}</Code>
             {t('cli.runTitle')}
           </p>
           <Code caption="terminal">{`xray reconstruct capture.zip --out ./rebuilt`}</Code>
+
+          <Code caption="./rebuilt/.xray/">{`report.md              start here
+02-sources/            recovered original files
+04-api-model.json      endpoints, schemas, auth
+05-route-model.json    routes → the endpoints they fired
+recordings.json        real captured responses`}</Code>
         </div>
 
         <div className="space-y-4">
@@ -151,11 +157,6 @@ cd ../xray_cli && bun install && bun link`}</Code>
   "gaps": 0,
   "filesWritten": 14
 }`}</Code>
-          <Code caption="./rebuilt/.xray/">{`report.md              start here
-02-sources/            recovered original files
-04-api-model.json      endpoints, schemas, auth
-05-route-model.json    routes → the endpoints they fired
-recordings.json        real captured responses`}</Code>
         </div>
       </div>
     </Section>
@@ -170,26 +171,38 @@ export function Skill() {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('skill.claudeTitle')}
+            {t('skill.setupTitle')}
           </p>
-          <Code caption="terminal">{`mkdir -p ~/.claude/skills
-ln -s ~/projects/xray_cli/skills/reconstruct \\
-      ~/.claude/skills/xray-reconstruct`}</Code>
+          <Code caption="paste this once">{`git clone https://github.com/johnqh/xray_lib
+git clone https://github.com/johnqh/xray_cli
+
+cd xray_lib && bun install && bun run build
+cd ../xray_cli && bun install && bun link
+
+xray install --all`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('skill.codexTitle')}
+            {t('skill.thenTitle')}
           </p>
-          <p className="text-[14px] leading-relaxed text-bone/60">{t('skill.codexBody')}</p>
-          <Code caption="terminal">{`mkdir -p ~/.agents/skills
-ln -s ~/projects/xray_cli/skills/reconstruct \\
-      ~/.agents/skills/xray-reconstruct`}</Code>
+          <Code caption="then, in a new session">{`reconstruct ~/Downloads/xray-app.example.com.zip`}</Code>
         </div>
 
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('skill.thenTitle')}
+            {t('skill.installTitle')}
           </p>
-          <Code caption="claude code">{`> reconstruct ~/Downloads/xray-app.example.com.zip`}</Code>
+          <p className="text-[14px] leading-relaxed text-bone/60">
+            {t('skill.installBody')}
+          </p>
+
+          <Code caption={t('skill.claudeTitle')}>{`xray install --claude`}</Code>
+          <Code caption={t('skill.codexTitle')}>{`xray install --codex`}</Code>
+          <Code caption={t('skill.sharedTitle')}>{`xray install --agents`}</Code>
+
+          <p className="pt-1 text-[14px] leading-relaxed text-bone/60">
+            {t('skill.codexBody')}
+          </p>
+
           <Note title="What it will not do">
             Write an endpoint the capture never observed, or fill in a route you
             never visited. Both come back as gaps, because that is what the
