@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "tagline": "Reconstruct a web app from what your browser already received",
+    "intro": "Your browser downloads every line of a web app's code and every byte of its data. xray records that, redacts the secrets, and rebuilds the app as a project that installs and runs."
+  },
+  "nav": {
+    "howItWorks": "How it works",
+    "extension": "Extension",
+    "cli": "CLI",
+    "skill": "Skill",
+    "repos": "Repos"
+  },
+  "hero": {
+    "eyebrow": "Capture · Bundle · Reconstruct",
+    "plateLabel": "Capture plate — react-sample, 15 of 18 requests",
+    "ctaPrimary": "Read the walkthrough",
+    "ctaSecondary": "View source"
+  },
+  "stages": {
+    "title": "Three stages, one seam",
+    "lede": "The browser is the only place the app is alive. Everything that needs a running page happens in the extension; everything else happens offline, where iteration is cheap. They meet at a documented bundle on disk.",
+    "capture": {
+      "name": "Capture",
+      "where": "In the browser",
+      "body": "The extension attaches the DevTools protocol to your tab and records every request and response — JavaScript, HTML, JSON, assets — plus the framework, router table, and chunk manifest it can only read while the page is running."
+    },
+    "bundle": {
+      "name": "Bundle",
+      "where": "On disk",
+      "body": "One zip. Deduplicated bodies addressed by hash, a redacted request log, discovered source maps, and an explicit list of everything the capture missed."
+    },
+    "reconstruct": {
+      "name": "Reconstruct",
+      "where": "In your terminal",
+      "body": "The CLI recovers original sources, infers a typed API from observed payloads, and emits a project with a replay server. The skill hands the rest to Claude Code or Codex."
+    }
+  },
+  "extension": {
+    "title": "The capture extension",
+    "lede": "Chrome's extension API cannot read response bodies. The DevTools protocol can — so xray attaches it directly, which is why Chrome shows the \"being debugged\" banner while you browse.",
+    "cdpTitle": "Records what webRequest can't",
+    "cdpBody": "Request and response bodies, WebSocket frames, and the sourceMappingURL of every script — even when the comment was stripped from the served file.",
+    "coverageTitle": "Tells you when you're done",
+    "coverageBody": "It reads the bundler's own chunk manifest and the live router table, then shows you what you haven't loaded yet. You navigate; the meter drives you to complete coverage.",
+    "redactionTitle": "Redacts before anything is stored",
+    "redactionBody": "Credentials never reach disk. A token becomes a stable placeholder — the same token gets the same placeholder everywhere, so the auth flow stays reconstructable without a single real credential leaving the browser.",
+    "installTitle": "Install",
+    "installBody": "Not on the Web Store. Build it and load it unpacked."
+  },
+  "bundle": {
+    "title": "What's in a bundle",
+    "lede": "Open it with unzip and read it with jq. Nothing about the format is proprietary.",
+    "gapsTitle": "Gaps are recorded, not hidden",
+    "gapsBody": "A reconstruction built over silently missing chunks produces confident, wrong output. Anything the capture failed to record lands in gaps.json, propagates into the generated code as an XRAY-GAP marker, and makes the replay server answer 501 instead of inventing a response."
+  },
+  "cli": {
+    "title": "The CLI",
+    "lede": "Every deterministic stage runs here: source-map recovery, JSON Schema inference across observed payloads, endpoint clustering, and code generation.",
+    "installTitle": "Install",
+    "runTitle": "Run it",
+    "outputTitle": "What you get",
+    "outputBody": "A project that installs, typechecks, and builds — plus the intermediate artifacts every stage wrote, so you can re-run any stage without capturing again."
+  },
+  "skill": {
+    "title": "The skill",
+    "lede": "The CLI does what is mechanical. The skill carries the judgment: read the artifacts, implement one route at a time against the endpoints that actually fired, and never invent what the capture did not see.",
+    "claudeTitle": "Claude Code",
+    "codexTitle": "Codex, Gemini CLI, Copilot CLI",
+    "codexBody": "These runtimes read ~/.agents/skills as a cross-runtime alias, so the same directory serves all of them.",
+    "thenTitle": "Then just ask"
+  },
+  "walkthrough": {
+    "title": "Reversing an app, start to finish",
+    "lede": "The whole loop, in the order you'd actually do it.",
+    "s1": "Open the app and start capture. Chrome shows the debugging banner — that's the protocol attaching.",
+    "s2": "Navigate everywhere. Watch the coverage meter: every lazy chunk that hasn't loaded and every route you haven't visited is a hole in the reconstruction.",
+    "s3": "Review what was redacted, then export. You get one zip.",
+    "s4": "Run the CLI. It recovers original sources when the app shipped maps, and infers types from real payloads when it didn't.",
+    "s5": "Point your agent at the output. It reads the report first, then implements route by route.",
+    "s6": "Run what came out."
+  },
+  "repos": {
+    "title": "Three repositories",
+    "lede": "The library is imported by the extension, so it holds no filesystem or Node APIs. The CLI needs both, which is why it lives apart.",
+    "extension": "MV3 capture: DevTools protocol, offscreen buffer, coverage meter, redaction, export.",
+    "cli": "Reconstruction CLI and the agent skill. Unzip, analyze, generate, replay.",
+    "lib": "Bundle format, redaction, coverage, schema inference. No I/O, by construction."
+  },
+  "footer": {
+    "note": "xray reads what a browser was already given. That's ordinary practice for interop work, security research, and rebuilding your own applications. Pointing it at someone else's property is a decision you own — their terms, and your jurisdiction, both have opinions.",
+    "built": "Built with Bun, Vite, and the Chrome DevTools Protocol."
+  }
+}

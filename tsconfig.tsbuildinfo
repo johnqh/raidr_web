@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/i18n.ts","./src/main.tsx","./src/vite-env.d.ts","./src/components/captureplate.tsx","./src/components/hero.tsx","./src/components/sections.tsx","./src/components/primitives.tsx","./src/data/capture.ts","./vite.config.ts"],"version":"5.9.3"}
