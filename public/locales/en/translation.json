@@ -84,11 +84,12 @@
     "s6": "Run what came out."
   },
   "repos": {
-    "title": "Three repositories",
-    "lede": "The library is imported by the extension, so it holds no filesystem or Node APIs. The CLI needs both, which is why it lives apart.",
+    "title": "Four repositories",
+    "lede": "The library is imported by the extension, so it holds no filesystem or Node APIs. The CLI needs both, which is why it lives apart. This site is the fourth.",
     "extension": "MV3 capture: DevTools protocol, offscreen buffer, coverage meter, redaction, export.",
     "cli": "Reconstruction CLI and the agent skill. Unzip, analyze, generate, replay.",
-    "lib": "Bundle format, redaction, coverage, schema inference. No I/O, by construction."
+    "lib": "Bundle format, redaction, coverage, schema inference. No I/O, by construction.",
+    "web": "This landing page. React, Vite, Tailwind, deployed on Cloudflare Pages."
   },
   "footer": {
     "note": "xray reads what a browser was already given. That's ordinary practice for interop work, security research, and rebuilding your own applications. Pointing it at someone else's property is a decision you own — their terms, and your jurisdiction, both have opinions.",

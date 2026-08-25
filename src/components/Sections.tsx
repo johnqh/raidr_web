@@ -257,11 +257,12 @@ export function Repos() {
     { name: 'xray_extension', key: 'extension' },
     { name: 'xray_cli', key: 'cli' },
     { name: 'xray_lib', key: 'lib' },
+    { name: 'xray_web', key: 'web' },
   ] as const;
 
   return (
     <Section id="repos" eyebrow={t('nav.repos')} title={t('repos.title')} lede={t('repos.lede')}>
-      <div className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 [&>*]:min-w-0 sm:grid-cols-3">
+      <div className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 [&>*]:min-w-0 sm:grid-cols-2 lg:grid-cols-4">
         {repos.map((repo) => (
           <a
             key={repo.name}

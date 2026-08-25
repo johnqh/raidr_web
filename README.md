@@ -35,6 +35,15 @@ hero's capture plate is actual request data from
 bundle's real reconstruct report. If the tools change, re-run them and update
 the page rather than editing the numbers.
 
+## The xray project
+
+| Repository | Role |
+|---|---|
+| [`xray_lib`](https://github.com/johnqh/xray_lib) | Bundle format and pure analysis |
+| [`xray_extension`](https://github.com/johnqh/xray_extension) | Chrome MV3 extension that performs the capture |
+| [`xray_cli`](https://github.com/johnqh/xray_cli) | Reconstruction CLI and the agent skill |
+| [`xray_web`](https://github.com/johnqh/xray_web) | Landing site — this repo |
+
 ## License
 
-BUSL-1.1
+BUSL-1.1 — see [LICENSE.md](LICENSE.md).
