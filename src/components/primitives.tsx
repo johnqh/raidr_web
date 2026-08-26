@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 export function Section({
   id,
@@ -20,15 +20,15 @@ export function Section({
       id={id}
       className={
         inverted
-          ? 'border-y border-black/10 bg-bone py-16 text-film sm:py-24'
-          : 'py-16 sm:py-24'
+          ? "border-y border-black/10 bg-bone py-16 text-film sm:py-24"
+          : "py-16 sm:py-24"
       }
     >
       <div className="mx-auto w-full max-w-5xl px-5 sm:px-8">
         {eyebrow && (
           <p
             className={`font-cond text-[11px] uppercase tracking-plate ${
-              inverted ? 'text-film/45' : 'text-exposure'
+              inverted ? "text-film/45" : "text-exposure"
             }`}
           >
             {eyebrow}
@@ -40,7 +40,7 @@ export function Section({
         {lede && (
           <p
             className={`mt-4 max-w-readable text-[15px] leading-relaxed ${
-              inverted ? 'text-film/70' : 'text-bone/60'
+              inverted ? "text-film/70" : "text-bone/60"
             }`}
           >
             {lede}
@@ -64,15 +64,15 @@ export function Code({
   return (
     <div
       className={`overflow-hidden rounded-sm border ${
-        inverted ? 'border-film/15 bg-film/[0.04]' : 'border-white/10 bg-plate'
+        inverted ? "border-film/15 bg-film/[0.04]" : "border-white/10 bg-plate"
       }`}
     >
       {caption && (
         <div
           className={`border-b px-4 py-2 font-cond text-[10px] uppercase tracking-plate ${
             inverted
-              ? 'border-film/10 text-film/45'
-              : 'border-white/10 text-bone/40'
+              ? "border-film/10 text-film/45"
+              : "border-white/10 text-bone/40"
           }`}
         >
           {caption}
@@ -81,7 +81,7 @@ export function Code({
       <pre className="overflow-x-auto px-4 py-3.5">
         <code
           className={`font-mono text-[12.5px] leading-[1.75] ${
-            inverted ? 'text-film/85' : 'text-bone/80'
+            inverted ? "text-film/85" : "text-bone/80"
           }`}
         >
           {children}
@@ -91,7 +91,13 @@ export function Code({
   );
 }
 
-export function Note({ title, children }: { title: string; children: ReactNode }) {
+export function Note({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
   return (
     <div className="border-l-2 border-flare/60 pl-4">
       <p className="font-cond text-[11px] uppercase tracking-plate text-flare/90">

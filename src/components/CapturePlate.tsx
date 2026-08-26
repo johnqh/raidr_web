@@ -1,4 +1,4 @@
-import { CAPTURE_ROWS, NAV_LABELS, type PlateRow } from '../data/capture';
+import { CAPTURE_ROWS, NAV_LABELS, type PlateRow } from "../data/capture";
 
 /**
  * The signature. A radiograph is a negative: dense material reads bright. So
@@ -15,22 +15,22 @@ function widthFor(bytes: number): number {
 }
 
 function formatBytes(bytes: number): string {
-  if (bytes <= 0) return '—';
+  if (bytes <= 0) return "—";
   return bytes < 1024 ? `${bytes}` : `${(bytes / 1024).toFixed(1)}k`;
 }
 
-const DENSITY: Record<PlateRow['kind'], string> = {
-  script: 'bg-bone',
-  document: 'bg-exposure',
-  api: 'bg-flare',
-  preflight: 'bg-shelf',
+const DENSITY: Record<PlateRow["kind"], string> = {
+  script: "bg-bone",
+  document: "bg-exposure",
+  api: "bg-flare",
+  preflight: "bg-shelf",
 };
 
-const OPACITY: Record<PlateRow['kind'], string> = {
-  script: 'opacity-95',
-  document: 'opacity-70',
-  api: 'opacity-90',
-  preflight: 'opacity-45',
+const OPACITY: Record<PlateRow["kind"], string> = {
+  script: "opacity-95",
+  document: "opacity-70",
+  api: "opacity-90",
+  preflight: "opacity-45",
 };
 
 export function CapturePlate({ label }: { label: string }) {
@@ -52,7 +52,9 @@ export function CapturePlate({ label }: { label: string }) {
                 <span className="font-mono text-[10px] text-bone/35">
                   nav{navIndex + 1}
                 </span>
-                <span className="font-mono text-[10px] text-bone/55">{navLabel}</span>
+                <span className="font-mono text-[10px] text-bone/55">
+                  {navLabel}
+                </span>
                 <span className="h-px flex-1 bg-white/[0.07]" />
               </div>
 
@@ -91,14 +93,16 @@ export function CapturePlate({ label }: { label: string }) {
       <div className="flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-white/10 px-4 py-2.5">
         {(
           [
-            ['script', 'JavaScript'],
-            ['document', 'Document'],
-            ['api', 'API'],
-            ['preflight', 'Preflight'],
+            ["script", "JavaScript"],
+            ["document", "Document"],
+            ["api", "API"],
+            ["preflight", "Preflight"],
           ] as const
         ).map(([kind, name]) => (
           <span key={kind} className="flex items-center gap-1.5">
-            <span className={`h-[7px] w-4 rounded-[1px] ${DENSITY[kind]} ${OPACITY[kind]}`} />
+            <span
+              className={`h-[7px] w-4 rounded-[1px] ${DENSITY[kind]} ${OPACITY[kind]}`}
+            />
             <span className="font-mono text-[10px] text-bone/40">{name}</span>
           </span>
         ))}

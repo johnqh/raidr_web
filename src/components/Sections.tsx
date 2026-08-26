@@ -1,22 +1,29 @@
-import { useTranslation } from 'react-i18next';
-import { Section, Code, Note } from './primitives';
+import { useTranslation } from "react-i18next";
+import { Section, Code, Note } from "./primitives";
 
 /* The three-stage spine. Numbering is used here and nowhere else on the page,
    because this is the one place where order carries information. */
 export function Stages() {
   const { t } = useTranslation();
-  const stages = ['capture', 'bundle', 'reconstruct'] as const;
+  const stages = ["capture", "bundle", "reconstruct"] as const;
 
   return (
-    <Section id="how" eyebrow={t('nav.howItWorks')} title={t('stages.title')} lede={t('stages.lede')}>
+    <Section
+      id="how"
+      eyebrow={t("nav.howItWorks")}
+      title={t("stages.title")}
+      lede={t("stages.lede")}
+    >
       <ol className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 [&>*]:min-w-0 sm:grid-cols-3">
         {stages.map((stage, index) => (
           <li key={stage} className="bg-film p-6">
             <div className="flex items-baseline gap-3">
               <span className="font-mono text-[11px] text-flare">
-                {String(index + 1).padStart(2, '0')}
+                {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="font-cond text-lg font-semibold">{t(`stages.${stage}.name`)}</h3>
+              <h3 className="font-cond text-lg font-semibold">
+                {t(`stages.${stage}.name`)}
+              </h3>
             </div>
             <p className="mt-1 font-cond text-[10px] uppercase tracking-plate text-bone/35">
               {t(`stages.${stage}.where`)}
@@ -33,10 +40,15 @@ export function Stages() {
 
 export function Extension() {
   const { t } = useTranslation();
-  const points = ['cdp', 'coverage', 'redaction'] as const;
+  const points = ["cdp", "coverage", "redaction"] as const;
 
   return (
-    <Section id="extension" eyebrow={t('nav.extension')} title={t('extension.title')} lede={t('extension.lede')}>
+    <Section
+      id="extension"
+      eyebrow={t("nav.extension")}
+      title={t("extension.title")}
+      lede={t("extension.lede")}
+    >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-7">
           {points.map((point) => (
@@ -53,10 +65,10 @@ export function Extension() {
 
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('extension.installTitle')}
+            {t("extension.installTitle")}
           </p>
           <p className="text-[14px] leading-relaxed text-bone/60">
-            {t('extension.installBody')}
+            {t("extension.installBody")}
           </p>
           <Code caption="terminal">{`git clone https://github.com/johnqh/xray_extension
 cd xray_extension && bun install && bun run build`}</Code>
@@ -81,9 +93,18 @@ export function BundleSection() {
   const { t } = useTranslation();
 
   return (
-    <Section id="bundle" eyebrow="Artifact" title={t('bundle.title')} lede={t('bundle.lede')} inverted>
+    <Section
+      id="bundle"
+      eyebrow="Artifact"
+      title={t("bundle.title")}
+      lede={t("bundle.lede")}
+      inverted
+    >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
-        <Code inverted caption="xray-app.example.com-20260825-1430.zip">{`xray.json              manifest, detected stack, counts
+        <Code
+          inverted
+          caption="xray-app.example.com-20260825-1430.zip"
+        >{`xray.json              manifest, detected stack, counts
 network/
   requests.jsonl       one redacted request per line
   websockets.jsonl     frames
@@ -102,13 +123,21 @@ gaps.json              what was missed, and why`}</Code>
 
         <div className="space-y-6">
           <div>
-            <h3 className="font-cond text-[15px] font-semibold">{t('bundle.gapsTitle')}</h3>
+            <h3 className="font-cond text-[15px] font-semibold">
+              {t("bundle.gapsTitle")}
+            </h3>
             <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-film/70">
-              {t('bundle.gapsBody')}
+              {t("bundle.gapsBody")}
             </p>
           </div>
-          <Code inverted caption="generated source, when capture fell short">{`// XRAY-GAP: chunk 47 (route /admin) never captured`}</Code>
-          <Code inverted caption="replay server, same situation">{`GET /api/never-captured → 501
+          <Code
+            inverted
+            caption="generated source, when capture fell short"
+          >{`// XRAY-GAP: chunk 47 (route /admin) never captured`}</Code>
+          <Code
+            inverted
+            caption="replay server, same situation"
+          >{`GET /api/never-captured → 501
 { "error": "XRAY-GAP", "detail": "no endpoint captured" }`}</Code>
         </div>
       </div>
@@ -120,11 +149,16 @@ export function Cli() {
   const { t } = useTranslation();
 
   return (
-    <Section id="cli" eyebrow={t('nav.cli')} title={t('cli.title')} lede={t('cli.lede')}>
+    <Section
+      id="cli"
+      eyebrow={t("nav.cli")}
+      title={t("cli.title")}
+      lede={t("cli.lede")}
+    >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('cli.installTitle')}
+            {t("cli.installTitle")}
           </p>
           <Code caption="terminal">{`git clone https://github.com/johnqh/xray_lib
 git clone https://github.com/johnqh/xray_cli
@@ -133,7 +167,7 @@ cd xray_lib && bun install && bun run build
 cd ../xray_cli && bun install && bun link`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('cli.runTitle')}
+            {t("cli.runTitle")}
           </p>
           <Code caption="terminal">{`xray reconstruct capture.zip --out ./rebuilt`}</Code>
 
@@ -146,9 +180,11 @@ recordings.json        real captured responses`}</Code>
 
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('cli.outputTitle')}
+            {t("cli.outputTitle")}
           </p>
-          <p className="text-[14px] leading-relaxed text-bone/60">{t('cli.outputBody')}</p>
+          <p className="text-[14px] leading-relaxed text-bone/60">
+            {t("cli.outputBody")}
+          </p>
           <Code caption="actual output — react-sample.zip">{`{
   "recoveryRatio": 100,
   "mode": "recovery",
@@ -167,11 +203,16 @@ export function Skill() {
   const { t } = useTranslation();
 
   return (
-    <Section id="skill" eyebrow={t('nav.skill')} title={t('skill.title')} lede={t('skill.lede')}>
+    <Section
+      id="skill"
+      eyebrow={t("nav.skill")}
+      title={t("skill.title")}
+      lede={t("skill.lede")}
+    >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('skill.setupTitle')}
+            {t("skill.setupTitle")}
           </p>
           <Code caption="paste this once">{`git clone https://github.com/johnqh/xray_lib
 git clone https://github.com/johnqh/xray_cli
@@ -182,25 +223,29 @@ cd ../xray_cli && bun install && bun link
 xray install --all`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('skill.thenTitle')}
+            {t("skill.thenTitle")}
           </p>
           <Code caption="then, in a new session">{`reconstruct ~/Downloads/xray-app.example.com.zip`}</Code>
         </div>
 
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
-            {t('skill.installTitle')}
+            {t("skill.installTitle")}
           </p>
           <p className="text-[14px] leading-relaxed text-bone/60">
-            {t('skill.installBody')}
+            {t("skill.installBody")}
           </p>
 
-          <Code caption={t('skill.claudeTitle')}>{`xray install --claude`}</Code>
-          <Code caption={t('skill.codexTitle')}>{`xray install --codex`}</Code>
-          <Code caption={t('skill.sharedTitle')}>{`xray install --agents`}</Code>
+          <Code
+            caption={t("skill.claudeTitle")}
+          >{`xray install --claude`}</Code>
+          <Code caption={t("skill.codexTitle")}>{`xray install --codex`}</Code>
+          <Code
+            caption={t("skill.sharedTitle")}
+          >{`xray install --agents`}</Code>
 
           <p className="pt-1 text-[14px] leading-relaxed text-bone/60">
-            {t('skill.codexBody')}
+            {t("skill.codexBody")}
           </p>
 
           <Note title="What it will not do">
@@ -216,23 +261,31 @@ xray install --all`}</Code>
 
 export function Walkthrough() {
   const { t } = useTranslation();
-  const steps = ['s1', 's2', 's3', 's4', 's5', 's6'] as const;
+  const steps = ["s1", "s2", "s3", "s4", "s5", "s6"] as const;
   const commands: Record<string, string | null> = {
     s1: null,
     s2: null,
     s3: null,
-    s4: 'xray reconstruct ~/Downloads/xray-app.zip --out ./rebuilt',
-    s5: '> reconstruct ./rebuilt',
-    s6: 'cd rebuilt && bun install && bun run build && bun run server/replay.ts',
+    s4: "xray reconstruct ~/Downloads/xray-app.zip --out ./rebuilt",
+    s5: "> reconstruct ./rebuilt",
+    s6: "cd rebuilt && bun install && bun run build && bun run server/replay.ts",
   };
 
   return (
-    <Section id="walkthrough" eyebrow="End to end" title={t('walkthrough.title')} lede={t('walkthrough.lede')}>
+    <Section
+      id="walkthrough"
+      eyebrow="End to end"
+      title={t("walkthrough.title")}
+      lede={t("walkthrough.lede")}
+    >
       <ol className="space-y-8">
         {steps.map((step, index) => (
-          <li key={step} className="grid gap-4 [&>*]:min-w-0 sm:grid-cols-[3rem_minmax(0,1fr)]">
+          <li
+            key={step}
+            className="grid gap-4 [&>*]:min-w-0 sm:grid-cols-[3rem_minmax(0,1fr)]"
+          >
             <span className="font-mono text-[12px] text-flare">
-              {String(index + 1).padStart(2, '0')}
+              {String(index + 1).padStart(2, "0")}
             </span>
             <div>
               <p className="max-w-readable text-[15px] leading-relaxed text-bone/75">
@@ -254,14 +307,19 @@ export function Walkthrough() {
 export function Repos() {
   const { t } = useTranslation();
   const repos = [
-    { name: 'xray_extension', key: 'extension' },
-    { name: 'xray_cli', key: 'cli' },
-    { name: 'xray_lib', key: 'lib' },
-    { name: 'xray_web', key: 'web' },
+    { name: "xray_extension", key: "extension" },
+    { name: "xray_cli", key: "cli" },
+    { name: "xray_lib", key: "lib" },
+    { name: "xray_web", key: "web" },
   ] as const;
 
   return (
-    <Section id="repos" eyebrow={t('nav.repos')} title={t('repos.title')} lede={t('repos.lede')}>
+    <Section
+      id="repos"
+      eyebrow={t("nav.repos")}
+      title={t("repos.title")}
+      lede={t("repos.lede")}
+    >
       <div className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 [&>*]:min-w-0 sm:grid-cols-2 lg:grid-cols-4">
         {repos.map((repo) => (
           <a

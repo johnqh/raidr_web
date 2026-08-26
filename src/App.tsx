@@ -1,6 +1,6 @@
-import { Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Hero } from './components/Hero';
+import { Suspense } from "react";
+import { useTranslation } from "react-i18next";
+import { Hero } from "./components/Hero";
 import {
   Stages,
   Extension,
@@ -9,22 +9,25 @@ import {
   Skill,
   Walkthrough,
   Repos,
-} from './components/Sections';
+} from "./components/Sections";
 
 function TopBar() {
   const { t } = useTranslation();
   const links = [
-    ['how', t('nav.howItWorks')],
-    ['extension', t('nav.extension')],
-    ['cli', t('nav.cli')],
-    ['skill', t('nav.skill')],
-    ['repos', t('nav.repos')],
+    ["how", t("nav.howItWorks")],
+    ["extension", t("nav.extension")],
+    ["cli", t("nav.cli")],
+    ["skill", t("nav.skill")],
+    ["repos", t("nav.repos")],
   ] as const;
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-film/85 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
-        <a href="#top" className="font-cond text-[15px] font-bold tracking-[-0.01em]">
+        <a
+          href="#top"
+          className="font-cond text-[15px] font-bold tracking-[-0.01em]"
+        >
           xray
         </a>
         <div className="flex items-center gap-5">
@@ -55,9 +58,11 @@ function Footer() {
     <footer className="border-t border-white/10 py-14">
       <div className="mx-auto w-full max-w-5xl px-5 sm:px-8">
         <p className="max-w-readable text-[13px] leading-relaxed text-bone/45">
-          {t('footer.note')}
+          {t("footer.note")}
         </p>
-        <p className="mt-6 font-mono text-[11px] text-bone/25">{t('footer.built')}</p>
+        <p className="mt-6 font-mono text-[11px] text-bone/25">
+          {t("footer.built")}
+        </p>
       </div>
     </footer>
   );
