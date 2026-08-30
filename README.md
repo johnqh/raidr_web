@@ -1,6 +1,6 @@
-# xray_web
+# raider_web
 
-Single-page landing site for [xray](https://github.com/johnqh/xray_extension) — the
+Single-page landing site for [raider](https://github.com/johnqh/raider_extension) — the
 capture extension, the reconstruction CLI, and the agent skill.
 
 ## Development
@@ -25,24 +25,24 @@ A missing locale falls back to `en`, so adding a language is just adding a file
 — no code change.
 
 Copy lives in the locale file. Code blocks and technical identifiers stay in the
-components: `xray reconstruct` is not a phrase to translate.
+components: `raider reconstruct` is not a phrase to translate.
 
 ## Content policy
 
 Every code block and every number on the page is copied from a real run — the
 hero's capture plate is actual request data from
-`xray_cli/fixtures/bundles/react-sample.zip`, and the CLI output block is that
+`raider_cli/fixtures/bundles/react-sample.zip`, and the CLI output block is that
 bundle's real reconstruct report. If the tools change, re-run them and update
 the page rather than editing the numbers.
 
-## The xray project
+## The raider project
 
 | Repository | Role |
 |---|---|
-| [`xray_lib`](https://github.com/johnqh/xray_lib) | Bundle format and pure analysis |
-| [`xray_extension`](https://github.com/johnqh/xray_extension) | Chrome MV3 extension that performs the capture |
-| [`xray_cli`](https://github.com/johnqh/xray_cli) | Reconstruction CLI and the agent skill |
-| [`xray_web`](https://github.com/johnqh/xray_web) | Landing site — this repo |
+| [`raider_lib`](https://github.com/johnqh/raider_lib) | Bundle format and pure analysis |
+| [`raider_extension`](https://github.com/johnqh/raider_extension) | Chrome MV3 extension that performs the capture |
+| [`raider_cli`](https://github.com/johnqh/raider_cli) | Reconstruction CLI and the agent skill |
+| [`raider_web`](https://github.com/johnqh/raider_web) | Landing site — this repo |
 
 ## License
 

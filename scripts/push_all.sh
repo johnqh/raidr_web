@@ -22,15 +22,15 @@ BASE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # Wait times are used for packages that need CI/CD to complete publishing
 # before dependent packages can fetch the new version from npm.
 #
-# xray is a diamond, not a chain: xray_lib is the only published dependency,
+# raider is a diamond, not a chain: raider_lib is the only published dependency,
 # and both consumers sit downstream of it without seeing each other. So only
-# xray_lib needs a wait. xray_cli publishes but nothing here consumes it;
-# xray_extension and xray_web are private and publish nothing.
+# raider_lib needs a wait. raider_cli publishes but nothing here consumes it;
+# raider_extension and raider_web are private and publish nothing.
 PROJECTS=(
-    "../xray_lib:60"
-    "../xray_cli:0"
-    "../xray_extension:0"
-    "../xray_web:0"
+    "../raider_lib:60"
+    "../raider_cli:0"
+    "../raider_extension:0"
+    "../raider_web:0"
 )
 
 # Source reusable script: prefer local workflows repo, fall back to GitHub

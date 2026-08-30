@@ -1,6 +1,6 @@
-# CLAUDE.md — xray_web
+# CLAUDE.md — raider_web
 
-Single-page marketing/docs site for the xray toolchain.
+Single-page marketing/docs site for the raider toolchain.
 
 ## Tech stack
 
@@ -60,7 +60,7 @@ section; the effect only works once.
 
 ## Related projects
 
-- `xray_extension` — the capture extension
-- `xray_cli` — reconstruction CLI and the agent skill
-- `xray_lib` — bundle format and pure analysis
+- `raider_extension` — the capture extension
+- `raider_cli` — reconstruction CLI and the agent skill
+- `raider_lib` — bundle format and pure analysis
 - `sudobility` — the landing-page template this follows

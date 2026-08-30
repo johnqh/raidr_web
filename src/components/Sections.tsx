@@ -70,10 +70,10 @@ export function Extension() {
           <p className="text-[14px] leading-relaxed text-bone/60">
             {t("extension.installBody")}
           </p>
-          <Code caption="terminal">{`git clone https://github.com/johnqh/xray_extension
-cd xray_extension && bun install && bun run build`}</Code>
+          <Code caption="terminal">{`git clone https://github.com/johnqh/raider_extension
+cd raider_extension && bun install && bun run build`}</Code>
           <Code caption="chrome">{`chrome://extensions → Developer mode → Load unpacked
-select xray_extension/dist`}</Code>
+select raider_extension/dist`}</Code>
           <Code caption="what a redacted request looks like">{`{
   "method": "POST",
   "url": "https://api.example.com/api/login",
@@ -103,8 +103,8 @@ export function BundleSection() {
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <Code
           inverted
-          caption="xray-app.example.com-20260825-1430.zip"
-        >{`xray.json              manifest, detected stack, counts
+          caption="raider-app.example.com-20260825-1430.zip"
+        >{`raider.json              manifest, detected stack, counts
 network/
   requests.jsonl       one redacted request per line
   websockets.jsonl     frames
@@ -133,12 +133,12 @@ gaps.json              what was missed, and why`}</Code>
           <Code
             inverted
             caption="generated source, when capture fell short"
-          >{`// XRAY-GAP: chunk 47 (route /admin) never captured`}</Code>
+          >{`// RAIDER-GAP: chunk 47 (route /admin) never captured`}</Code>
           <Code
             inverted
             caption="replay server, same situation"
           >{`GET /api/never-captured → 501
-{ "error": "XRAY-GAP", "detail": "no endpoint captured" }`}</Code>
+{ "error": "RAIDER-GAP", "detail": "no endpoint captured" }`}</Code>
         </div>
       </div>
     </Section>
@@ -160,18 +160,18 @@ export function Cli() {
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("cli.installTitle")}
           </p>
-          <Code caption="terminal">{`git clone https://github.com/johnqh/xray_lib
-git clone https://github.com/johnqh/xray_cli
+          <Code caption="terminal">{`git clone https://github.com/johnqh/raider_lib
+git clone https://github.com/johnqh/raider_cli
 
-cd xray_lib && bun install && bun run build
-cd ../xray_cli && bun install && bun link`}</Code>
+cd raider_lib && bun install && bun run build
+cd ../raider_cli && bun install && bun link`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("cli.runTitle")}
           </p>
-          <Code caption="terminal">{`xray reconstruct capture.zip --out ./rebuilt`}</Code>
+          <Code caption="terminal">{`raider reconstruct capture.zip --out ./rebuilt`}</Code>
 
-          <Code caption="./rebuilt/.xray/">{`report.md              start here
+          <Code caption="./rebuilt/.raider/">{`report.md              start here
 02-sources/            recovered original files
 04-api-model.json      endpoints, schemas, auth
 05-route-model.json    routes → the endpoints they fired
@@ -214,18 +214,18 @@ export function Skill() {
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("skill.setupTitle")}
           </p>
-          <Code caption="paste this once">{`git clone https://github.com/johnqh/xray_lib
-git clone https://github.com/johnqh/xray_cli
+          <Code caption="paste this once">{`git clone https://github.com/johnqh/raider_lib
+git clone https://github.com/johnqh/raider_cli
 
-cd xray_lib && bun install && bun run build
-cd ../xray_cli && bun install && bun link
+cd raider_lib && bun install && bun run build
+cd ../raider_cli && bun install && bun link
 
-xray install --all`}</Code>
+raider install --all`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("skill.thenTitle")}
           </p>
-          <Code caption="then, in a new session">{`reconstruct ~/Downloads/xray-app.example.com.zip`}</Code>
+          <Code caption="then, in a new session">{`reconstruct ~/Downloads/raider-app.example.com.zip`}</Code>
         </div>
 
         <div className="space-y-4">
@@ -238,11 +238,11 @@ xray install --all`}</Code>
 
           <Code
             caption={t("skill.claudeTitle")}
-          >{`xray install --claude`}</Code>
-          <Code caption={t("skill.codexTitle")}>{`xray install --codex`}</Code>
+          >{`raider install --claude`}</Code>
+          <Code caption={t("skill.codexTitle")}>{`raider install --codex`}</Code>
           <Code
             caption={t("skill.sharedTitle")}
-          >{`xray install --agents`}</Code>
+          >{`raider install --agents`}</Code>
 
           <p className="pt-1 text-[14px] leading-relaxed text-bone/60">
             {t("skill.codexBody")}
@@ -266,7 +266,7 @@ export function Walkthrough() {
     s1: null,
     s2: null,
     s3: null,
-    s4: "xray reconstruct ~/Downloads/xray-app.zip --out ./rebuilt",
+    s4: "raider reconstruct ~/Downloads/raider-app.zip --out ./rebuilt",
     s5: "> reconstruct ./rebuilt",
     s6: "cd rebuilt && bun install && bun run build && bun run server/replay.ts",
   };
@@ -307,10 +307,10 @@ export function Walkthrough() {
 export function Repos() {
   const { t } = useTranslation();
   const repos = [
-    { name: "xray_extension", key: "extension" },
-    { name: "xray_cli", key: "cli" },
-    { name: "xray_lib", key: "lib" },
-    { name: "xray_web", key: "web" },
+    { name: "raider_extension", key: "extension" },
+    { name: "raider_cli", key: "cli" },
+    { name: "raider_lib", key: "lib" },
+    { name: "raider_web", key: "web" },
   ] as const;
 
   return (

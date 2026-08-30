@@ -28,7 +28,7 @@ function TopBar() {
           href="#top"
           className="font-cond text-[15px] font-bold tracking-[-0.01em]"
         >
-          xray
+          raider
         </a>
         <div className="flex items-center gap-5">
           {links.map(([id, label]) => (
@@ -41,7 +41,7 @@ function TopBar() {
             </a>
           ))}
           <a
-            href="https://github.com/johnqh/xray_cli"
+            href="https://github.com/johnqh/raider_cli"
             className="font-cond text-[11px] uppercase tracking-plate text-flare/90 transition-colors hover:text-flare"
           >
             GitHub

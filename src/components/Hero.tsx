@@ -29,7 +29,7 @@ export function Hero() {
                 {t("hero.ctaPrimary")}
               </a>
               <a
-                href="https://github.com/johnqh/xray_extension"
+                href="https://github.com/johnqh/raider_extension"
                 className="rounded-sm border border-white/15 px-5 py-2.5 font-cond text-[13px] font-semibold uppercase tracking-plate text-bone/80 transition-colors hover:border-white/30 hover:text-bone"
               >
                 {t("hero.ctaSecondary")}
