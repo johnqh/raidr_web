@@ -22,15 +22,15 @@ BASE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # Wait times are used for packages that need CI/CD to complete publishing
 # before dependent packages can fetch the new version from npm.
 #
-# raider is a diamond, not a chain: raider_lib is the only published dependency,
+# raidr is a diamond, not a chain: raidr_lib is the only published dependency,
 # and both consumers sit downstream of it without seeing each other. So only
-# raider_lib needs a wait. raider_cli publishes but nothing here consumes it;
-# raider_extension and raider_web are private and publish nothing.
+# raidr_lib needs a wait. raidr_cli publishes but nothing here consumes it;
+# raidr_extension and raidr_web are private and publish nothing.
 PROJECTS=(
-    "../raider_lib:60"
-    "../raider_cli:0"
-    "../raider_extension:0"
-    "../raider_web:0"
+    "../raidr_lib:60"
+    "../raidr_cli:0"
+    "../raidr_extension:0"
+    "../raidr_web:0"
 )
 
 # Source reusable script: prefer local workflows repo, fall back to GitHub

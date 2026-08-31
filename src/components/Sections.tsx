@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Section, Code, Note } from "./primitives";
+import { Section, Code, Note, REPO_BASE } from "./primitives";
 
 /* The three-stage spine. Numbering is used here and nowhere else on the page,
    because this is the one place where order carries information. */
@@ -48,6 +48,7 @@ export function Extension() {
       eyebrow={t("nav.extension")}
       title={t("extension.title")}
       lede={t("extension.lede")}
+      repo="raidr_extension"
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-7">
@@ -70,10 +71,10 @@ export function Extension() {
           <p className="text-[14px] leading-relaxed text-bone/60">
             {t("extension.installBody")}
           </p>
-          <Code caption="terminal">{`git clone https://github.com/johnqh/raider_extension
-cd raider_extension && bun install && bun run build`}</Code>
+          <Code caption="terminal">{`git clone https://github.com/johnqh/raidr_extension
+cd raidr_extension && bun install && bun run build`}</Code>
           <Code caption="chrome">{`chrome://extensions → Developer mode → Load unpacked
-select raider_extension/dist`}</Code>
+select raidr_extension/dist`}</Code>
           <Code caption="what a redacted request looks like">{`{
   "method": "POST",
   "url": "https://api.example.com/api/login",
@@ -98,13 +99,14 @@ export function BundleSection() {
       eyebrow="Artifact"
       title={t("bundle.title")}
       lede={t("bundle.lede")}
+      repo="raidr_lib"
       inverted
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <Code
           inverted
-          caption="raider-app.example.com-20260825-1430.zip"
-        >{`raider.json              manifest, detected stack, counts
+          caption="raidr-app.example.com-20260825-1430.zip"
+        >{`raidr.json              manifest, detected stack, counts
 network/
   requests.jsonl       one redacted request per line
   websockets.jsonl     frames
@@ -133,12 +135,12 @@ gaps.json              what was missed, and why`}</Code>
           <Code
             inverted
             caption="generated source, when capture fell short"
-          >{`// RAIDER-GAP: chunk 47 (route /admin) never captured`}</Code>
+          >{`// RAIDR-GAP: chunk 47 (route /admin) never captured`}</Code>
           <Code
             inverted
             caption="replay server, same situation"
           >{`GET /api/never-captured → 501
-{ "error": "RAIDER-GAP", "detail": "no endpoint captured" }`}</Code>
+{ "error": "RAIDR-GAP", "detail": "no endpoint captured" }`}</Code>
         </div>
       </div>
     </Section>
@@ -154,24 +156,25 @@ export function Cli() {
       eyebrow={t("nav.cli")}
       title={t("cli.title")}
       lede={t("cli.lede")}
+      repo="raidr_cli"
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("cli.installTitle")}
           </p>
-          <Code caption="terminal">{`git clone https://github.com/johnqh/raider_lib
-git clone https://github.com/johnqh/raider_cli
+          <Code caption="terminal">{`git clone https://github.com/johnqh/raidr_lib
+git clone https://github.com/johnqh/raidr_cli
 
-cd raider_lib && bun install && bun run build
-cd ../raider_cli && bun install && bun link`}</Code>
+cd raidr_lib && bun install && bun run build
+cd ../raidr_cli && bun install && bun link`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("cli.runTitle")}
           </p>
-          <Code caption="terminal">{`raider reconstruct capture.zip --out ./rebuilt`}</Code>
+          <Code caption="terminal">{`raidr reconstruct capture.zip --out ./rebuilt`}</Code>
 
-          <Code caption="./rebuilt/.raider/">{`report.md              start here
+          <Code caption="./rebuilt/.raidr/">{`report.md              start here
 02-sources/            recovered original files
 04-api-model.json      endpoints, schemas, auth
 05-route-model.json    routes → the endpoints they fired
@@ -208,24 +211,25 @@ export function Skill() {
       eyebrow={t("nav.skill")}
       title={t("skill.title")}
       lede={t("skill.lede")}
+      repo="raidr_cli"
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
           <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("skill.setupTitle")}
           </p>
-          <Code caption="paste this once">{`git clone https://github.com/johnqh/raider_lib
-git clone https://github.com/johnqh/raider_cli
+          <Code caption="paste this once">{`git clone https://github.com/johnqh/raidr_lib
+git clone https://github.com/johnqh/raidr_cli
 
-cd raider_lib && bun install && bun run build
-cd ../raider_cli && bun install && bun link
+cd raidr_lib && bun install && bun run build
+cd ../raidr_cli && bun install && bun link
 
-raider install --all`}</Code>
+raidr install --all`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
             {t("skill.thenTitle")}
           </p>
-          <Code caption="then, in a new session">{`reconstruct ~/Downloads/raider-app.example.com.zip`}</Code>
+          <Code caption="then, in a new session">{`reconstruct ~/Downloads/raidr-app.example.com.zip`}</Code>
         </div>
 
         <div className="space-y-4">
@@ -238,11 +242,11 @@ raider install --all`}</Code>
 
           <Code
             caption={t("skill.claudeTitle")}
-          >{`raider install --claude`}</Code>
-          <Code caption={t("skill.codexTitle")}>{`raider install --codex`}</Code>
+          >{`raidr install --claude`}</Code>
+          <Code caption={t("skill.codexTitle")}>{`raidr install --codex`}</Code>
           <Code
             caption={t("skill.sharedTitle")}
-          >{`raider install --agents`}</Code>
+          >{`raidr install --agents`}</Code>
 
           <p className="pt-1 text-[14px] leading-relaxed text-bone/60">
             {t("skill.codexBody")}
@@ -266,7 +270,7 @@ export function Walkthrough() {
     s1: null,
     s2: null,
     s3: null,
-    s4: "raider reconstruct ~/Downloads/raider-app.zip --out ./rebuilt",
+    s4: "raidr reconstruct ~/Downloads/raidr-app.zip --out ./rebuilt",
     s5: "> reconstruct ./rebuilt",
     s6: "cd rebuilt && bun install && bun run build && bun run server/replay.ts",
   };
@@ -307,10 +311,10 @@ export function Walkthrough() {
 export function Repos() {
   const { t } = useTranslation();
   const repos = [
-    { name: "raider_extension", key: "extension" },
-    { name: "raider_cli", key: "cli" },
-    { name: "raider_lib", key: "lib" },
-    { name: "raider_web", key: "web" },
+    { name: "raidr_extension", key: "extension" },
+    { name: "raidr_cli", key: "cli" },
+    { name: "raidr_lib", key: "lib" },
+    { name: "raidr_web", key: "web" },
   ] as const;
 
   return (
@@ -324,7 +328,7 @@ export function Repos() {
         {repos.map((repo) => (
           <a
             key={repo.name}
-            href={`https://github.com/johnqh/${repo.name}`}
+            href={`${REPO_BASE}/${repo.name}`}
             className="group bg-film p-6 transition-colors hover:bg-plate"
           >
             <h3 className="font-mono text-[13px] text-bone group-hover:text-flare">

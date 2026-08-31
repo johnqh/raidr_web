@@ -1,13 +1,13 @@
-# raider_web
+# raidr_web
 
-Single-page landing site for [raider](https://github.com/johnqh/raider_extension) — the
+Single-page landing site for [raidr](https://github.com/johnqh/raidr_extension) — the
 capture extension, the reconstruction CLI, and the agent skill.
 
 ## Development
 
 ```bash
 bun install
-bun run dev        # http://localhost:5173
+bun run dev        # http://localhost:5140
 bun run build      # → dist/
 bun run preview
 ```
@@ -25,24 +25,24 @@ A missing locale falls back to `en`, so adding a language is just adding a file
 — no code change.
 
 Copy lives in the locale file. Code blocks and technical identifiers stay in the
-components: `raider reconstruct` is not a phrase to translate.
+components: `raidr reconstruct` is not a phrase to translate.
 
 ## Content policy
 
 Every code block and every number on the page is copied from a real run — the
 hero's capture plate is actual request data from
-`raider_cli/fixtures/bundles/react-sample.zip`, and the CLI output block is that
+`raidr_cli/fixtures/bundles/react-sample.zip`, and the CLI output block is that
 bundle's real reconstruct report. If the tools change, re-run them and update
 the page rather than editing the numbers.
 
-## The raider project
+## The raidr project
 
 | Repository | Role |
 |---|---|
-| [`raider_lib`](https://github.com/johnqh/raider_lib) | Bundle format and pure analysis |
-| [`raider_extension`](https://github.com/johnqh/raider_extension) | Chrome MV3 extension that performs the capture |
-| [`raider_cli`](https://github.com/johnqh/raider_cli) | Reconstruction CLI and the agent skill |
-| [`raider_web`](https://github.com/johnqh/raider_web) | Landing site — this repo |
+| [`raidr_lib`](https://github.com/johnqh/raidr_lib) | Bundle format and pure analysis |
+| [`raidr_extension`](https://github.com/johnqh/raidr_extension) | Chrome MV3 extension that performs the capture |
+| [`raidr_cli`](https://github.com/johnqh/raidr_cli) | Reconstruction CLI and the agent skill |
+| [`raidr_web`](https://github.com/johnqh/raidr_web) | Landing site — this repo |
 
 ## License
 

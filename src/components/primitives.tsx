@@ -1,10 +1,37 @@
 import type { ReactNode } from "react";
 
+export const REPO_BASE = "https://github.com/johnqh";
+
+/* A direct link to the repository a section is about. Mono, because it names a
+   repo, not a concept. */
+export function RepoLink({
+  repo,
+  inverted = false,
+}: {
+  repo: string;
+  inverted?: boolean;
+}) {
+  return (
+    <a
+      href={`${REPO_BASE}/${repo}`}
+      className={`inline-flex shrink-0 items-center gap-2 rounded-sm border px-3 py-1.5 font-mono text-[12px] transition-colors ${
+        inverted
+          ? "border-film/20 text-film/70 hover:border-film/40 hover:text-film"
+          : "border-white/12 text-bone/60 hover:border-flare/50 hover:text-flare"
+      }`}
+    >
+      {repo}
+      <span aria-hidden="true">↗</span>
+    </a>
+  );
+}
+
 export function Section({
   id,
   eyebrow,
   title,
   lede,
+  repo,
   children,
   inverted = false,
 }: {
@@ -12,6 +39,7 @@ export function Section({
   eyebrow?: string;
   title: string;
   lede?: string;
+  repo?: string;
   children: ReactNode;
   inverted?: boolean;
 }) {
@@ -34,9 +62,12 @@ export function Section({
             {eyebrow}
           </p>
         )}
-        <h2 className="mt-3 font-cond text-3xl font-semibold tracking-tight sm:text-4xl">
-          {title}
-        </h2>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+          <h2 className="font-cond text-3xl font-semibold tracking-tight sm:text-4xl">
+            {title}
+          </h2>
+          {repo && <RepoLink repo={repo} inverted={inverted} />}
+        </div>
         {lede && (
           <p
             className={`mt-4 max-w-readable text-[15px] leading-relaxed ${

@@ -1,7 +1,7 @@
 {
-  "name": "raider_web",
+  "name": "raidr_web",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,7 +19,7 @@
     "react-i18next": "^15.7.4"
   },
   "devDependencies": {
-    "@sudobility/design": "^1.1.48",
+    "@sudobility/design": "^1.1.49",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^4.5.1",

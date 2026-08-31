@@ -1,6 +1,6 @@
-# CLAUDE.md — raider_web
+# CLAUDE.md — raidr_web
 
-Single-page marketing/docs site for the raider toolchain.
+Single-page marketing/docs site for the raidr toolchain.
 
 ## Tech stack
 
@@ -60,7 +60,7 @@ section; the effect only works once.
 
 ## Related projects
 
-- `raider_extension` — the capture extension
-- `raider_cli` — reconstruction CLI and the agent skill
-- `raider_lib` — bundle format and pure analysis
+- `raidr_extension` — the capture extension
+- `raidr_cli` — reconstruction CLI and the agent skill
+- `raidr_lib` — bundle format and pure analysis
 - `sudobility` — the landing-page template this follows

@@ -10,6 +10,7 @@ import {
   Walkthrough,
   Repos,
 } from "./components/Sections";
+import { REPO_BASE } from "./components/primitives";
 
 function TopBar() {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ function TopBar() {
           href="#top"
           className="font-cond text-[15px] font-bold tracking-[-0.01em]"
         >
-          raider
+          raidr
         </a>
         <div className="flex items-center gap-5">
           {links.map(([id, label]) => (
@@ -41,7 +42,7 @@ function TopBar() {
             </a>
           ))}
           <a
-            href="https://github.com/johnqh/raider_cli"
+            href={`${REPO_BASE}/raidr_cli`}
             className="font-cond text-[11px] uppercase tracking-plate text-flare/90 transition-colors hover:text-flare"
           >
             GitHub
@@ -52,6 +53,13 @@ function TopBar() {
   );
 }
 
+const REPOS = [
+  "raidr_extension",
+  "raidr_cli",
+  "raidr_lib",
+  "raidr_web",
+] as const;
+
 function Footer() {
   const { t } = useTranslation();
   return (
@@ -60,6 +68,18 @@ function Footer() {
         <p className="max-w-readable text-[13px] leading-relaxed text-bone/45">
           {t("footer.note")}
         </p>
+        <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
+          {REPOS.map((repo) => (
+            <li key={repo}>
+              <a
+                href={`${REPO_BASE}/${repo}`}
+                className="font-mono text-[12px] text-bone/55 transition-colors hover:text-flare"
+              >
+                {repo} ↗
+              </a>
+            </li>
+          ))}
+        </ul>
         <p className="mt-6 font-mono text-[11px] text-bone/25">
           {t("footer.built")}
         </p>

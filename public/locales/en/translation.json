@@ -1,7 +1,7 @@
 {
   "meta": {
     "tagline": "Reconstruct a web app from what your browser already received",
-    "intro": "Your browser downloads every line of a web app's code and every byte of its data. raider records that, redacts the secrets, and rebuilds the app as a project that installs and runs."
+    "intro": "Your browser downloads every line of a web app's code and every byte of its data. raidr records that, redacts the secrets, and rebuilds the app as a project that installs and runs."
   },
   "nav": {
     "howItWorks": "How it works",
@@ -37,7 +37,7 @@
   },
   "extension": {
     "title": "The capture extension",
-    "lede": "Chrome's extension API cannot read response bodies. The DevTools protocol can — so raider attaches it directly, which is why Chrome shows the \"being debugged\" banner while you browse.",
+    "lede": "Chrome's extension API cannot read response bodies. The DevTools protocol can — so raidr attaches it directly, which is why Chrome shows the \"being debugged\" banner while you browse.",
     "cdpTitle": "Records what webRequest can't",
     "cdpBody": "Request and response bodies, WebSocket frames, and the sourceMappingURL of every script — even when the comment was stripped from the served file.",
     "coverageTitle": "Tells you when you're done",
@@ -51,7 +51,7 @@
     "title": "What's in a bundle",
     "lede": "Open it with unzip and read it with jq. Nothing about the format is proprietary.",
     "gapsTitle": "Gaps are recorded, not hidden",
-    "gapsBody": "A reconstruction built over silently missing chunks produces confident, wrong output. Anything the capture failed to record lands in gaps.json, propagates into the generated code as an RAIDER-GAP marker, and makes the replay server answer 501 instead of inventing a response."
+    "gapsBody": "A reconstruction built over silently missing chunks produces confident, wrong output. Anything the capture failed to record lands in gaps.json, propagates into the generated code as an RAIDR-GAP marker, and makes the replay server answer 501 instead of inventing a response."
   },
   "cli": {
     "title": "The CLI",
@@ -92,7 +92,7 @@
     "web": "This landing page. React, Vite, Tailwind, deployed on Cloudflare Pages."
   },
   "footer": {
-    "note": "raider reads what a browser was already given. That's ordinary practice for interop work, security research, and rebuilding your own applications. Pointing it at someone else's property is a decision you own — their terms, and your jurisdiction, both have opinions.",
+    "note": "raidr reads what a browser was already given. That's ordinary practice for interop work, security research, and rebuilding your own applications. Pointing it at someone else's property is a decision you own — their terms, and your jurisdiction, both have opinions.",
     "built": "Built with Bun, Vite, and the Chrome DevTools Protocol."
   }
 }
