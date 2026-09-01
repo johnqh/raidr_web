@@ -13,12 +13,11 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+/* Ground, type color and the sans stack come from the theme's base body rule,
+   injected by main.tsx. Only the box metrics are this page's own. */
 body {
   margin: 0;
   min-width: 320px;
-  background-color: theme("colors.film");
-  color: theme("colors.bone");
-  font-family: theme("fontFamily.sans");
 }
 
 /* The plate: a radiograph is a negative — dense material reads bright. The
@@ -27,10 +26,10 @@ body {
   background:
     radial-gradient(
       120% 90% at 50% 0%,
-      rgba(111, 168, 199, 0.16) 0%,
-      rgba(111, 168, 199, 0) 62%
+      hsl(var(--accent) / 0.16) 0%,
+      hsl(var(--accent) / 0) 62%
     ),
-    linear-gradient(180deg, #101820 0%, #0a1117 100%);
+    linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
 }
 
 .plate-grain::after {
@@ -69,11 +68,11 @@ body {
 }
 
 ::selection {
-  background: rgba(242, 180, 65, 0.28);
+  background: hsl(var(--primary) / 0.28);
 }
 
 :focus-visible {
-  outline: 2px solid theme("colors.flare");
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 3px;
   border-radius: 2px;
 }

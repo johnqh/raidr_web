@@ -16,8 +16,8 @@ export function RepoLink({
       href={`${REPO_BASE}/${repo}`}
       className={`inline-flex shrink-0 items-center gap-2 rounded-sm border px-3 py-1.5 font-mono text-[12px] transition-colors ${
         inverted
-          ? "border-film/20 text-film/70 hover:border-film/40 hover:text-film"
-          : "border-white/12 text-bone/60 hover:border-flare/50 hover:text-flare"
+          ? "border-background/20 text-background/70 hover:border-background/40 hover:text-background"
+          : "border-foreground/12 text-foreground/60 hover:border-primary/50 hover:text-primary"
       }`}
     >
       {repo}
@@ -48,7 +48,7 @@ export function Section({
       id={id}
       className={
         inverted
-          ? "border-y border-black/10 bg-bone py-16 text-film sm:py-24"
+          ? "border-y border-background/10 bg-foreground py-16 text-background sm:py-24"
           : "py-16 sm:py-24"
       }
     >
@@ -56,7 +56,7 @@ export function Section({
         {eyebrow && (
           <p
             className={`font-cond text-[11px] uppercase tracking-plate ${
-              inverted ? "text-film/45" : "text-exposure"
+              inverted ? "text-background/45" : "text-accent"
             }`}
           >
             {eyebrow}
@@ -71,7 +71,7 @@ export function Section({
         {lede && (
           <p
             className={`mt-4 max-w-readable text-[15px] leading-relaxed ${
-              inverted ? "text-film/70" : "text-bone/60"
+              inverted ? "text-background/70" : "text-foreground/60"
             }`}
           >
             {lede}
@@ -95,15 +95,15 @@ export function Code({
   return (
     <div
       className={`overflow-hidden rounded-sm border ${
-        inverted ? "border-film/15 bg-film/[0.04]" : "border-white/10 bg-plate"
+        inverted ? "border-background/15 bg-background/[0.04]" : "border-foreground/10 bg-card"
       }`}
     >
       {caption && (
         <div
           className={`border-b px-4 py-2 font-cond text-[10px] uppercase tracking-plate ${
             inverted
-              ? "border-film/10 text-film/45"
-              : "border-white/10 text-bone/40"
+              ? "border-background/10 text-background/45"
+              : "border-foreground/10 text-foreground/40"
           }`}
         >
           {caption}
@@ -112,7 +112,7 @@ export function Code({
       <pre className="overflow-x-auto px-4 py-3.5">
         <code
           className={`font-mono text-[12.5px] leading-[1.75] ${
-            inverted ? "text-film/85" : "text-bone/80"
+            inverted ? "text-background/85" : "text-foreground/80"
           }`}
         >
           {children}
@@ -130,11 +130,11 @@ export function Note({
   children: ReactNode;
 }) {
   return (
-    <div className="border-l-2 border-flare/60 pl-4">
-      <p className="font-cond text-[11px] uppercase tracking-plate text-flare/90">
+    <div className="border-l-2 border-primary/60 pl-4">
+      <p className="font-cond text-[11px] uppercase tracking-plate text-primary/90">
         {title}
       </p>
-      <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-bone/60">
+      <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-foreground/60">
         {children}
       </p>
     </div>

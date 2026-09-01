@@ -2,8 +2,8 @@ import { createTailwindPreset } from '@sudobility/design';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  // The design system's semantic tokens, as in the other sudobility landing
-  // pages. The radiographic palette below is this page's own identity.
+  // The radiograph theme: this page's palette, extracted into the design system
+  // so it is swappable and reusable. main.tsx supplies the custom properties.
   presets: [createTailwindPreset()],
   content: [
     './index.html',
@@ -13,19 +13,10 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        // Radiographic film. Dense material reads bright, as on a real plate.
-        film: '#080D12',
-        plate: '#101820',
-        shelf: '#18232C',
-        bone: '#E9E5DB',
-        exposure: '#6FA8C7',
-        flare: '#F2B441',
-      },
       fontFamily: {
-        sans: ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        // `sans` and `mono` come from the theme as var(--font-sans/mono). The
+        // condensed face has no token equivalent, so it is declared here.
         cond: ['"IBM Plex Sans Condensed"', '"IBM Plex Sans"', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {
         plate: '0.22em',

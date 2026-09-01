@@ -14,21 +14,21 @@ export function Stages() {
       title={t("stages.title")}
       lede={t("stages.lede")}
     >
-      <ol className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 [&>*]:min-w-0 sm:grid-cols-3">
+      <ol className="grid gap-px overflow-hidden rounded-sm border border-foreground/10 bg-foreground/10 [&>*]:min-w-0 sm:grid-cols-3">
         {stages.map((stage, index) => (
-          <li key={stage} className="bg-film p-6">
+          <li key={stage} className="bg-background p-6">
             <div className="flex items-baseline gap-3">
-              <span className="font-mono text-[11px] text-flare">
+              <span className="font-mono text-[11px] text-primary">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <h3 className="font-cond text-lg font-semibold">
                 {t(`stages.${stage}.name`)}
               </h3>
             </div>
-            <p className="mt-1 font-cond text-[10px] uppercase tracking-plate text-bone/35">
+            <p className="mt-1 font-cond text-[10px] uppercase tracking-plate text-foreground/35">
               {t(`stages.${stage}.where`)}
             </p>
-            <p className="mt-4 text-[14px] leading-relaxed text-bone/60">
+            <p className="mt-4 text-[14px] leading-relaxed text-foreground/60">
               {t(`stages.${stage}.body`)}
             </p>
           </li>
@@ -54,10 +54,10 @@ export function Extension() {
         <div className="space-y-7">
           {points.map((point) => (
             <div key={point}>
-              <h3 className="font-cond text-[15px] font-semibold text-bone">
+              <h3 className="font-cond text-[15px] font-semibold text-foreground">
                 {t(`extension.${point}Title`)}
               </h3>
-              <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-bone/60">
+              <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-foreground/60">
                 {t(`extension.${point}Body`)}
               </p>
             </div>
@@ -65,10 +65,10 @@ export function Extension() {
         </div>
 
         <div className="space-y-4">
-          <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("extension.installTitle")}
           </p>
-          <p className="text-[14px] leading-relaxed text-bone/60">
+          <p className="text-[14px] leading-relaxed text-foreground/60">
             {t("extension.installBody")}
           </p>
           <Code caption="terminal">{`git clone https://github.com/johnqh/raidr_extension
@@ -128,7 +128,7 @@ gaps.json              what was missed, and why`}</Code>
             <h3 className="font-cond text-[15px] font-semibold">
               {t("bundle.gapsTitle")}
             </h3>
-            <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-film/70">
+            <p className="mt-2 max-w-readable text-[14px] leading-relaxed text-background/70">
               {t("bundle.gapsBody")}
             </p>
           </div>
@@ -160,7 +160,7 @@ export function Cli() {
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
-          <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("cli.installTitle")}
           </p>
           <Code caption="terminal">{`git clone https://github.com/johnqh/raidr_lib
@@ -169,7 +169,7 @@ git clone https://github.com/johnqh/raidr_cli
 cd raidr_lib && bun install && bun run build
 cd ../raidr_cli && bun install && bun link`}</Code>
 
-          <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("cli.runTitle")}
           </p>
           <Code caption="terminal">{`raidr reconstruct capture.zip --out ./rebuilt`}</Code>
@@ -182,10 +182,10 @@ recordings.json        real captured responses`}</Code>
         </div>
 
         <div className="space-y-4">
-          <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("cli.outputTitle")}
           </p>
-          <p className="text-[14px] leading-relaxed text-bone/60">
+          <p className="text-[14px] leading-relaxed text-foreground/60">
             {t("cli.outputBody")}
           </p>
           <Code caption="actual output — react-sample.zip">{`{
@@ -215,7 +215,7 @@ export function Skill() {
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
         <div className="space-y-4">
-          <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("skill.setupTitle")}
           </p>
           <Code caption="paste this once">{`git clone https://github.com/johnqh/raidr_lib
@@ -226,17 +226,17 @@ cd ../raidr_cli && bun install && bun link
 
 raidr install --all`}</Code>
 
-          <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("skill.thenTitle")}
           </p>
           <Code caption="then, in a new session">{`reconstruct ~/Downloads/raidr-app.example.com.zip`}</Code>
         </div>
 
         <div className="space-y-4">
-          <p className="font-cond text-[11px] uppercase tracking-plate text-exposure">
+          <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("skill.installTitle")}
           </p>
-          <p className="text-[14px] leading-relaxed text-bone/60">
+          <p className="text-[14px] leading-relaxed text-foreground/60">
             {t("skill.installBody")}
           </p>
 
@@ -248,7 +248,7 @@ raidr install --all`}</Code>
             caption={t("skill.sharedTitle")}
           >{`raidr install --agents`}</Code>
 
-          <p className="pt-1 text-[14px] leading-relaxed text-bone/60">
+          <p className="pt-1 text-[14px] leading-relaxed text-foreground/60">
             {t("skill.codexBody")}
           </p>
 
@@ -288,11 +288,11 @@ export function Walkthrough() {
             key={step}
             className="grid gap-4 [&>*]:min-w-0 sm:grid-cols-[3rem_minmax(0,1fr)]"
           >
-            <span className="font-mono text-[12px] text-flare">
+            <span className="font-mono text-[12px] text-primary">
               {String(index + 1).padStart(2, "0")}
             </span>
             <div>
-              <p className="max-w-readable text-[15px] leading-relaxed text-bone/75">
+              <p className="max-w-readable text-[15px] leading-relaxed text-foreground/75">
                 {t(`walkthrough.${step}`)}
               </p>
               {commands[step] && (
@@ -324,20 +324,20 @@ export function Repos() {
       title={t("repos.title")}
       lede={t("repos.lede")}
     >
-      <div className="grid gap-px overflow-hidden rounded-sm border border-white/10 bg-white/10 [&>*]:min-w-0 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px overflow-hidden rounded-sm border border-foreground/10 bg-foreground/10 [&>*]:min-w-0 sm:grid-cols-2 lg:grid-cols-4">
         {repos.map((repo) => (
           <a
             key={repo.name}
             href={`${REPO_BASE}/${repo.name}`}
-            className="group bg-film p-6 transition-colors hover:bg-plate"
+            className="group bg-background p-6 transition-colors hover:bg-card"
           >
-            <h3 className="font-mono text-[13px] text-bone group-hover:text-flare">
+            <h3 className="font-mono text-[13px] text-foreground group-hover:text-primary">
               {repo.name}
             </h3>
-            <p className="mt-3 text-[14px] leading-relaxed text-bone/55">
+            <p className="mt-3 text-[14px] leading-relaxed text-foreground/55">
               {t(`repos.${repo.key}`)}
             </p>
-            <span className="mt-4 inline-block font-cond text-[10px] uppercase tracking-plate text-bone/30 group-hover:text-bone/60">
+            <span className="mt-4 inline-block font-cond text-[10px] uppercase tracking-plate text-foreground/30 group-hover:text-foreground/60">
               github ↗
             </span>
           </a>

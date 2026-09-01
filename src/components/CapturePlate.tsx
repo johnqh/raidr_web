@@ -20,10 +20,10 @@ function formatBytes(bytes: number): string {
 }
 
 const DENSITY: Record<PlateRow["kind"], string> = {
-  script: "bg-bone",
-  document: "bg-exposure",
-  api: "bg-flare",
-  preflight: "bg-shelf",
+  script: "bg-foreground",
+  document: "bg-accent",
+  api: "bg-primary",
+  preflight: "bg-muted",
 };
 
 const OPACITY: Record<PlateRow["kind"], string> = {
@@ -35,12 +35,12 @@ const OPACITY: Record<PlateRow["kind"], string> = {
 
 export function CapturePlate({ label }: { label: string }) {
   return (
-    <figure className="relative plate-grain plate-surface overflow-hidden rounded-sm border border-white/10">
-      <figcaption className="flex items-baseline justify-between gap-4 border-b border-white/10 px-4 py-2.5">
-        <span className="font-cond text-[10px] uppercase tracking-plate text-exposure">
+    <figure className="relative plate-grain plate-surface overflow-hidden rounded-sm border border-foreground/10">
+      <figcaption className="flex items-baseline justify-between gap-4 border-b border-foreground/10 px-4 py-2.5">
+        <span className="font-cond text-[10px] uppercase tracking-plate text-accent">
           {label}
         </span>
-        <span className="font-mono text-[10px] text-bone/40">CDP 1.3</span>
+        <span className="font-mono text-[10px] text-foreground/40">CDP 1.3</span>
       </figcaption>
 
       <div className="px-4 py-4">
@@ -49,13 +49,13 @@ export function CapturePlate({ label }: { label: string }) {
           return (
             <div key={navLabel} className="mb-3 last:mb-0">
               <div className="mb-1.5 flex items-center gap-2">
-                <span className="font-mono text-[10px] text-bone/35">
+                <span className="font-mono text-[10px] text-foreground/35">
                   nav{navIndex + 1}
                 </span>
-                <span className="font-mono text-[10px] text-bone/55">
+                <span className="font-mono text-[10px] text-foreground/55">
                   {navLabel}
                 </span>
-                <span className="h-px flex-1 bg-white/[0.07]" />
+                <span className="h-px flex-1 bg-foreground/[0.07]" />
               </div>
 
               {rows.map((row, rowIndex) => (
@@ -66,7 +66,7 @@ export function CapturePlate({ label }: { label: string }) {
                     animationDelay: `${(navIndex * 6 + rowIndex) * 45 + 200}ms`,
                   }}
                 >
-                  <span className="w-[52px] shrink-0 text-right font-mono text-[10px] text-bone/40">
+                  <span className="w-[52px] shrink-0 text-right font-mono text-[10px] text-foreground/40">
                     {row.method}
                   </span>
 
@@ -77,10 +77,10 @@ export function CapturePlate({ label }: { label: string }) {
                     />
                   </span>
 
-                  <span className="hidden w-[190px] shrink-0 truncate font-mono text-[10px] text-bone/45 sm:block">
+                  <span className="hidden w-[190px] shrink-0 truncate font-mono text-[10px] text-foreground/45 sm:block">
                     {row.path}
                   </span>
-                  <span className="w-[54px] shrink-0 text-right font-mono text-[10px] text-bone/30">
+                  <span className="w-[54px] shrink-0 text-right font-mono text-[10px] text-foreground/30">
                     {formatBytes(row.bytes)}
                   </span>
                 </div>
@@ -90,7 +90,7 @@ export function CapturePlate({ label }: { label: string }) {
         })}
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-white/10 px-4 py-2.5">
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-foreground/10 px-4 py-2.5">
         {(
           [
             ["script", "JavaScript"],
@@ -103,7 +103,7 @@ export function CapturePlate({ label }: { label: string }) {
             <span
               className={`h-[7px] w-4 rounded-[1px] ${DENSITY[kind]} ${OPACITY[kind]}`}
             />
-            <span className="font-mono text-[10px] text-bone/40">{name}</span>
+            <span className="font-mono text-[10px] text-foreground/40">{name}</span>
           </span>
         ))}
       </div>
