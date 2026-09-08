@@ -95,7 +95,9 @@ export function Code({
   return (
     <div
       className={`overflow-hidden rounded-sm border ${
-        inverted ? "border-background/15 bg-background/[0.04]" : "border-foreground/10 bg-card"
+        inverted
+          ? "border-background/15 bg-background/[0.04]"
+          : "border-foreground/10 bg-card"
       }`}
     >
       {caption && (

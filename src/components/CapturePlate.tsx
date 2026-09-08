@@ -40,7 +40,9 @@ export function CapturePlate({ label }: { label: string }) {
         <span className="font-cond text-[10px] uppercase tracking-plate text-accent">
           {label}
         </span>
-        <span className="font-mono text-[10px] text-foreground/40">CDP 1.3</span>
+        <span className="font-mono text-[10px] text-foreground/40">
+          CDP 1.3
+        </span>
       </figcaption>
 
       <div className="px-4 py-4">
@@ -103,7 +105,9 @@ export function CapturePlate({ label }: { label: string }) {
             <span
               className={`h-[7px] w-4 rounded-[1px] ${DENSITY[kind]} ${OPACITY[kind]}`}
             />
-            <span className="font-mono text-[10px] text-foreground/40">{name}</span>
+            <span className="font-mono text-[10px] text-foreground/40">
+              {name}
+            </span>
           </span>
         ))}
       </div>
