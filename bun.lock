@@ -5,7 +5,7 @@
     "": {
       "name": "raidr_web",
       "dependencies": {
-        "@sudobility/design": "^1.1.52",
+        "@sudobility/design": "^1.1.54",
         "i18next": "^25.6.2",
         "i18next-browser-languagedetector": "^8.2.1",
         "i18next-http-backend": "^4.0.1",
@@ -185,7 +185,7 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.63.0", "", { "os": "win32", "cpu": "x64" }, "sha512-hncn90N4sOky0L2LKE5oESKLbxCPeVo4eLA2LSMoDzM+879ml4WSr+Rr4DWknNIVVvS1Hirkc9hx02W6YxS8rQ=="],
 
-    "@sudobility/design": ["@sudobility/design@1.1.52", "", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-8lsV2uGpqO2KBAtGMO6P+EUz2Yxmb5hm+cl9Lsyv5GH2M4igtyq+kCcGwl1xUrsfpSBsi78hEQT4aDMyFOtvUQ=="],
+    "@sudobility/design": ["@sudobility/design@1.1.54", "", { "peerDependencies": { "clsx": ">=2.0.0", "tailwind-merge": ">=2.0.0" } }, "sha512-gFEAoHrIk1rWm+Tqr8El0QrxqXH4vPqwQQPDuiSmPSV4juqAY64CLhg3y8FLpWezNWdV1gqFHhNkeXXGjnmXKg=="],
 
     "@types/babel__core": ["@types/babel__core@7.20.5", "", { "dependencies": { "@babel/parser": "^7.20.7", "@babel/types": "^7.20.7", "@types/babel__generator": "*", "@types/babel__template": "*", "@types/babel__traverse": "*" } }, "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA=="],
 
