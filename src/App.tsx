@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Hero } from "./components/Hero";
 import {
@@ -97,7 +97,7 @@ function Footer() {
   );
 }
 
-export default function App() {
+function HomePage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-background" />}>
       <div id="top">
@@ -116,4 +116,21 @@ export default function App() {
       </div>
     </Suspense>
   );
+}
+
+function NotFoundPage() {
+  useEffect(() => {
+    if (window.location.pathname !== "/404")
+      window.history.replaceState(null, "", "/404");
+  }, []);
+  return (
+    <main className="mx-auto max-w-2xl px-4 py-16 text-center">
+      <h1>404</h1>
+      <p>Page Not Found</p>
+      <a href="/">Go to Home</a>
+    </main>
+  );
+}
+export default function App() {
+  return window.location.pathname === "/" ? <HomePage /> : <NotFoundPage />;
 }
