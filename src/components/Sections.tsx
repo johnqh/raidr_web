@@ -99,7 +99,7 @@ export function BundleSection() {
       eyebrow="Artifact"
       title={t("bundle.title")}
       lede={t("bundle.lede")}
-      repo="raidr_lib"
+      repo="raidr_processor"
       inverted
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 [&>*]:min-w-0">
@@ -163,10 +163,10 @@ export function Cli() {
           <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("cli.installTitle")}
           </p>
-          <Code caption="terminal">{`git clone https://github.com/johnqh/raidr_lib
+          <Code caption="terminal">{`git clone https://github.com/johnqh/raidr_processor
 git clone https://github.com/johnqh/raidr_cli
 
-cd raidr_lib && bun install && bun run build
+cd raidr_processor && bun install && bun run build
 cd ../raidr_cli && bun install && bun link`}</Code>
 
           <p className="pt-2 font-cond text-[11px] uppercase tracking-plate text-accent">
@@ -218,10 +218,10 @@ export function Skill() {
           <p className="font-cond text-[11px] uppercase tracking-plate text-accent">
             {t("skill.setupTitle")}
           </p>
-          <Code caption="paste this once">{`git clone https://github.com/johnqh/raidr_lib
+          <Code caption="paste this once">{`git clone https://github.com/johnqh/raidr_processor
 git clone https://github.com/johnqh/raidr_cli
 
-cd raidr_lib && bun install && bun run build
+cd raidr_processor && bun install && bun run build
 cd ../raidr_cli && bun install && bun link
 
 raidr install --all`}</Code>
@@ -313,7 +313,13 @@ export function Repos() {
   const repos = [
     { name: "raidr_extension", key: "extension" },
     { name: "raidr_cli", key: "cli" },
-    { name: "raidr_lib", key: "lib" },
+    { name: "raidr_processor", key: "lib" },
+    { name: "raidr_crawler", key: "crawler" },
+    { name: "raidr_api", key: "api" },
+    { name: "raidr_app", key: "app" },
+    { name: "raidr_types", key: "types" },
+    { name: "raidr_client", key: "client" },
+    { name: "raidr_lib", key: "applib" },
     { name: "raidr_web", key: "web" },
   ] as const;
 

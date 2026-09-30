@@ -84,12 +84,18 @@
     "s6": "Run what came out."
   },
   "repos": {
-    "title": "Four repositories",
-    "lede": "The library is imported by the extension, so it holds no filesystem or Node APIs. The CLI needs both, which is why it lives apart. This site is the fourth.",
+    "title": "Ten repositories",
+    "lede": "The processor is imported by the extension, so it holds no filesystem or Node APIs. The CLI and crawler need both, which is why they live apart. The API hosts what the crawler publishes; the app browses it.",
     "extension": "MV3 capture: DevTools protocol, offscreen buffer, coverage meter, redaction, export.",
     "cli": "Reconstruction CLI and the agent skill. Unzip, analyze, generate, replay.",
     "lib": "Bundle format, redaction, coverage, schema inference. No I/O, by construction.",
-    "web": "This landing page. React, Vite, Tailwind, deployed on Cloudflare Pages."
+    "web": "This landing page. React, Vite, Tailwind, deployed on Cloudflare Pages.",
+    "crawler": "Headless crawl into a raidr bundle, API analysis, and the raidr-publish skill that turns it into an MCP manifest.",
+    "api": "Catalog of MCP manifests, skills and sites, plus the hosted MCP endpoint at api.raidr.app/mcp/{host}.",
+    "app": "Browse MCP servers and skills with connection and install docs. Deployed on Cloudflare Pages.",
+    "types": "Shared wire types and zod schemas for the manifest, skills and sites.",
+    "client": "Network client and TanStack Query hooks for the API.",
+    "applib": "Business logic for the app: catalog hooks, MCP connection snippets, skill install helpers."
   },
   "footer": {
     "note": "raidr reads what a browser was already given. That's ordinary practice for interop work, security research, and rebuilding your own applications. Pointing it at someone else's property is a decision you own — their terms, and your jurisdiction, both have opinions.",

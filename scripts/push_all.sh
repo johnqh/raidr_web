@@ -22,14 +22,21 @@ BASE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 # Wait times are used for packages that need CI/CD to complete publishing
 # before dependent packages can fetch the new version from npm.
 #
-# raidr is a diamond, not a chain: raidr_lib is the only published dependency,
-# and both consumers sit downstream of it without seeing each other. So only
-# raidr_lib needs a wait. raidr_cli publishes but nothing here consumes it;
-# raidr_extension and raidr_web are private and publish nothing.
+# Publish order follows the dependency graph. Published packages get a wait so
+# CI can put the new version on npm before a consumer's lockfile asks for it:
+#   raidr_types → raidr_processor → raidr_client → raidr_lib
+#   raidr_crawler (types, processor), raidr_cli/raidr_extension (processor),
+#   raidr_api (types), raidr_app (client, lib, types), raidr_web (nothing).
 PROJECTS=(
+    "../raidr_types:60"
+    "../raidr_processor:60"
+    "../raidr_client:60"
     "../raidr_lib:60"
+    "../raidr_crawler:0"
     "../raidr_cli:0"
     "../raidr_extension:0"
+    "../raidr_api:0"
+    "../raidr_app:0"
     "../raidr_web:0"
 )
 

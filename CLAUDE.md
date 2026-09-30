@@ -102,5 +102,9 @@ section; the effect only works once.
 
 - `raidr_extension` — the capture extension
 - `raidr_cli` — reconstruction CLI and the agent skill
-- `raidr_lib` — bundle format and pure analysis
+- `raidr_processor` — bundle format and pure analysis
+- `raidr_crawler` — headless crawler, analysis pre-pass, raidr-publish skill
+- `raidr_types` / `raidr_client` / `raidr_lib` — shared types, API client, app business logic
+- `raidr_api` — catalog CRUD and the hosted MCP endpoint
+- `raidr_app` — catalog web app
 - `sudobility` — the landing-page template this follows

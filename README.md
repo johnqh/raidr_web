@@ -39,9 +39,15 @@ the page rather than editing the numbers.
 
 | Repository | Role |
 |---|---|
-| [`raidr_lib`](https://github.com/johnqh/raidr_lib) | Bundle format and pure analysis |
+| [`raidr_processor`](https://github.com/johnqh/raidr_processor) | Bundle format and pure analysis |
 | [`raidr_extension`](https://github.com/johnqh/raidr_extension) | Chrome MV3 extension that performs the capture |
 | [`raidr_cli`](https://github.com/johnqh/raidr_cli) | Reconstruction CLI and the agent skill |
+| [`raidr_crawler`](https://github.com/johnqh/raidr_crawler) | Headless crawler, API analysis, and the raidr-publish skill |
+| [`raidr_types`](https://github.com/johnqh/raidr_types) | Shared wire types and zod schemas |
+| [`raidr_client`](https://github.com/johnqh/raidr_client) | API client and TanStack Query hooks |
+| [`raidr_lib`](https://github.com/johnqh/raidr_lib) | Business logic for the app |
+| [`raidr_api`](https://github.com/johnqh/raidr_api) | MCP/skill/site catalog and hosted MCP server |
+| [`raidr_app`](https://github.com/johnqh/raidr_app) | Catalog web app (raidr.app) |
 | [`raidr_web`](https://github.com/johnqh/raidr_web) | Landing site — this repo |
 
 ## License

@@ -65,6 +65,12 @@ function TopBar() {
 const REPOS = [
   "raidr_extension",
   "raidr_cli",
+  "raidr_processor",
+  "raidr_crawler",
+  "raidr_api",
+  "raidr_app",
+  "raidr_types",
+  "raidr_client",
   "raidr_lib",
   "raidr_web",
 ] as const;
