@@ -1,7 +1,9 @@
 /**
- * Real rows from a real capture: fixtures/bundles/react-sample.zip in raider_cli.
+ * Real rows from a real capture: fixtures/bundles/react-sample.zip in raidr_cli.
  * Sizes are the actual captured byte counts. Nothing here is illustrative.
  */
+
+/** One request on the plate. `nav` is 1-based and indexes `NAV_LABELS`. */
 export interface PlateRow {
   nav: number;
   method: string;
@@ -11,6 +13,7 @@ export interface PlateRow {
   bytes: number;
 }
 
+/** The rows CapturePlate draws, in capture order. Edit only from a real run. */
 export const CAPTURE_ROWS: PlateRow[] = [
   {
     nav: 1,
@@ -134,4 +137,5 @@ export const CAPTURE_ROWS: PlateRow[] = [
   },
 ];
 
+/** Route label for each navigation group; nav N is `NAV_LABELS[N - 1]`. */
 export const NAV_LABELS = ["/", "/users", "/users/:id", "/stats"];

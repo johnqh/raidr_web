@@ -62,6 +62,8 @@ function TopBar() {
   );
 }
 
+/* Footer link list. The repo cards in Sections.tsx keep their own list (with
+   translation keys); a new repo goes in both. */
 const REPOS = [
   "raidr_extension",
   "raidr_cli",
@@ -137,6 +139,10 @@ function NotFoundPage() {
     </main>
   );
 }
+/**
+ * Root. There is no router: `/` renders the landing page and every other path
+ * renders the 404 view, which rewrites the URL to `/404`.
+ */
 export default function App() {
   return window.location.pathname === "/" ? <HomePage /> : <NotFoundPage />;
 }

@@ -33,6 +33,10 @@ const OPACITY: Record<PlateRow["kind"], string> = {
   preflight: "opacity-45",
 };
 
+/**
+ * The hero's request waterfall drawn as a radiograph, one group per navigation
+ * in `NAV_LABELS`. Row colour encodes request kind; width is log-scaled bytes.
+ */
 export function CapturePlate({ label }: { label: string }) {
   return (
     <figure className="relative plate-grain plate-surface overflow-hidden rounded-sm border border-foreground/10">

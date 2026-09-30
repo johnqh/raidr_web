@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { CapturePlate } from "./CapturePlate";
 
+/** Tagline, intro and CTAs beside the CapturePlate; the grid needs `[&>*]:min-w-0`. */
 export function Hero() {
   const { t } = useTranslation();
 

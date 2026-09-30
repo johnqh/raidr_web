@@ -1,5 +1,10 @@
+/* Layout and code primitives shared by every section. Each takes `inverted`
+   for use inside the one inverted section, where the foreground/background
+   roles swap. */
+
 import type { ReactNode } from "react";
 
+/** GitHub owner URL; every repo link on the page is built from it. */
 export const REPO_BASE = "https://github.com/johnqh";
 
 /* A direct link to the repository a section is about. Mono, because it names a
@@ -26,6 +31,11 @@ export function RepoLink({
   );
 }
 
+/**
+ * A page section: eyebrow, title, optional repo link and lede, then content.
+ * `id` is the anchor the top bar links to. `inverted` renders it as
+ * `bg-foreground text-background` — reserved for BundleSection.
+ */
 export function Section({
   id,
   eyebrow,
@@ -83,6 +93,10 @@ export function Section({
   );
 }
 
+/**
+ * A captioned, horizontally scrolling code block. `children` is a plain string
+ * because code stays inline in components rather than in translation.json.
+ */
 export function Code({
   children,
   caption,
@@ -124,6 +138,7 @@ export function Code({
   );
 }
 
+/** A primary-ruled aside with a condensed uppercase title. */
 export function Note({
   title,
   children,

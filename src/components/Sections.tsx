@@ -1,8 +1,12 @@
+/* Every content section below the hero, in page order (App.tsx composes them).
+   Prose comes from translation.json; code blocks are inline string literals. */
+
 import { useTranslation } from "react-i18next";
 import { Section, Code, Note, REPO_BASE } from "./primitives";
 
-/* The three-stage spine. Numbering is used here and nowhere else on the page,
-   because this is the one place where order carries information. */
+/* The three-stage spine. Numbering is used here and in the walkthrough and
+   nowhere else on the page, because those are the places where order carries
+   information. */
 export function Stages() {
   const { t } = useTranslation();
   const stages = ["capture", "bundle", "reconstruct"] as const;
@@ -38,6 +42,7 @@ export function Stages() {
   );
 }
 
+/** The capture extension: three feature points beside install steps and a redacted request. */
 export function Extension() {
   const { t } = useTranslation();
   const points = ["cdp", "coverage", "redaction"] as const;
@@ -147,6 +152,7 @@ gaps.json              what was missed, and why`}</Code>
   );
 }
 
+/** The reconstruction CLI: install, run, output layout, and a real reconstruct report. */
 export function Cli() {
   const { t } = useTranslation();
 
@@ -202,6 +208,7 @@ recordings.json        real captured responses`}</Code>
   );
 }
 
+/** The agent skill: one-time setup and per-agent install commands. */
 export function Skill() {
   const { t } = useTranslation();
 
@@ -263,6 +270,10 @@ raidr install --all`}</Code>
   );
 }
 
+/**
+ * End-to-end steps, numbered. `commands` pairs a step with an optional code
+ * block; the CTA in Hero links here (`#walkthrough`).
+ */
 export function Walkthrough() {
   const { t } = useTranslation();
   const steps = ["s1", "s2", "s3", "s4", "s5", "s6"] as const;
@@ -308,6 +319,11 @@ export function Walkthrough() {
   );
 }
 
+/**
+ * One card per repository. `key` is the `repos.<key>` translation key, not the
+ * repo name: `raidr_processor` uses `lib` (its pre-rename key) and the new
+ * `raidr_lib` uses `applib`. Unnumbered by design.
+ */
 export function Repos() {
   const { t } = useTranslation();
   const repos = [

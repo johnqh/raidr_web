@@ -1,6 +1,28 @@
 # CLAUDE.md — raidr_web
 
+> **Git policy — never auto-commit or auto-push.** Leave your work in the working tree.
+> Run `git commit`, `git push`, `gh pr create`, or `push_all.sh` **only when the user
+> explicitly asks in that turn**. Approval for an earlier change does not carry forward, and
+> finishing a task is not permission to commit it.
+
 Single-page marketing/docs site for the raidr toolchain.
+
+## Where it sits in the raidr family
+
+This repo is the landing page (raidr.dev). It imports no raidr package; it
+only describes and links to them.
+
+- `raidr_extension` — MV3 capture extension.
+- `raidr_processor` (npm `@sudobility/raidr_processor`; renamed from
+  `raidr_lib` on 2026-09-30) — pure bundle format / redaction / coverage
+  library the extension imports.
+- `raidr_cli` — reconstructs projects from bundles; ships the agent skill.
+- `raidr_crawler` — headless capture.
+- `raidr_types` → `raidr_client` → `raidr_lib` (the *new* business-logic
+  package) → `raidr_app` — the catalog app stack.
+- `raidr_api` — hosts the catalog and the MCP endpoint.
+- Releases run from `raidr_app/scripts/push_all.sh`, which processes this repo
+  last. raidr_web no longer has a release script of its own.
 
 ## Tech stack
 
@@ -13,8 +35,10 @@ Single-page marketing/docs site for the raidr toolchain.
 ## Structure
 
 ```
+index.html                SEO/OG meta, IBM Plex from Google Fonts, <html class="dark">
 src/
-  App.tsx                 top bar, section order, footer
+  main.tsx                configureTheme(radiographTheme) + injects generateThemeCSS
+  App.tsx                 top bar, section order, footer (+ its REPOS list), 404
   i18n.ts                 locale list + http backend
   index.css               radiographic tokens, plate surface, exposure animation
   data/capture.ts         REAL request rows from react-sample.zip
@@ -22,9 +46,15 @@ src/
     CapturePlate.tsx      the signature: waterfall as radiograph
     Hero.tsx
     Sections.tsx          all content sections
-    primitives.tsx        Section / Code / Note
+    primitives.tsx        Section / Code / Note (+ RepoLink, REPO_BASE)
 public/locales/en/translation.json    all prose
+public/                   icons, og-image, sitemap.xml, robots.txt, site.webmanifest
+tailwind.config.js        preset + font-cond / tracking-plate / max-w-readable only
+wrangler.toml             Cloudflare Pages, output ./dist
 ```
+
+There is no router: `App` renders the page at `/` and a 404 view (which
+rewrites the URL to `/404`) everywhere else.
 
 ## Commands
 
@@ -33,6 +63,18 @@ bun run dev
 bun run build         # tsc -b && vite build
 bun run typecheck
 ```
+
+| Command | What it does | Status (2026-09-30) |
+| --- | --- | --- |
+| `bun install` | install deps | — |
+| `bun run dev` | vite on http://localhost:5140 (strictPort) | serves 200 |
+| `bun run build` | `tsc -b && vite build` → `dist/` | passes |
+| `bun run typecheck` | `tsc --noEmit` | passes |
+| `bun run preview` | serve `dist/` on http://localhost:4173 | serves 200 |
+| `bunx prettier --check "src/**/*.{ts,tsx,css}"` | format check | passes |
+| `bun run format` | the same glob with `--write` (rewrites files) | — |
+
+There is no lint script.
 
 No test suite — this is a static page. Verification is `bun run build` plus a
 visual check at 1440px and 390px. For styling changes, screenshot before and
@@ -92,11 +134,38 @@ pulling the film off the wall and holding it to the light, and it is the one
 section literally about inspecting the artifact. Do not add a second inverted
 section; the effect only works once.
 
+## Making common changes
+
+- **Copy change**: `public/locales/en/translation.json` only. Other locales
+  fall back to `en` (only `en/` exists).
+- **New section**: component in `Sections.tsx` using `Section` → strings in
+  `translation.json` → add it to `HomePage` in `App.tsx` in page order → if it
+  belongs in the top bar, add a `nav.*` key and an entry in `TopBar`'s `links`
+  (the id must match the `Section`'s `id`).
+- **New repository**: `repos` array in `Repos()` (`Sections.tsx`) with a new
+  `repos.<key>` string → `REPOS` in `App.tsx` (footer) → the README table →
+  check the card grid (`sm:grid-cols-2 lg:grid-cols-5`) still fills whole rows.
+- **New color**: add it to the `radiograph` theme in `@sudobility/design`,
+  bump the dependency, then use the semantic class — never here.
+- **Updating the capture plate or CLI output**: re-run the tools on
+  `raidr_cli/fixtures/bundles/react-sample.zip` and copy the numbers into
+  `data/capture.ts` / `Sections.tsx`; never edit them by hand (README, "Content
+  policy"). `widthFor` in `CapturePlate.tsx` hard-codes the largest body
+  (205039 bytes) as its log-scale ceiling.
+
 ## Gotchas
 
 - **Grid children need `[&>*]:min-w-0`.** Grid tracks default to `min-width: auto`, so a wide `<pre>` inflates the track and breaks mobile even though the `<pre>` itself scrolls.
 - Numbering (01/02/03) appears only in the stages and walkthrough sections, where order carries real information. Do not add it to the repo cards.
 - Prose belongs in `translation.json`; code blocks stay inline in components.
+- Repo-card translation keys are not repo names: `raidr_processor` is
+  `repos.lib` (its pre-rename key) and the new `raidr_lib` is `repos.applib`.
+- The repo list exists twice — cards in `Sections.tsx`, footer links in
+  `App.tsx` — and nothing keeps them in sync.
+- A few English strings are still hard-coded in components rather than in
+  `translation.json`: `BundleSection`'s "Artifact" and `Walkthrough`'s "End to
+  end" eyebrows, the `Note` in `Skill`, the plate legend, "GitHub" in the top
+  bar, and the 404 page.
 
 ## Related projects
 
@@ -106,5 +175,5 @@ section; the effect only works once.
 - `raidr_crawler` — headless crawler, analysis pre-pass, raidr-publish skill
 - `raidr_types` / `raidr_client` / `raidr_lib` — shared types, API client, app business logic
 - `raidr_api` — catalog CRUD and the hosted MCP endpoint
-- `raidr_app` — catalog web app
+- `raidr_app` — catalog web app; owns `scripts/push_all.sh`, the release script
 - `sudobility` — the landing-page template this follows

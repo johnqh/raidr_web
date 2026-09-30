@@ -1,3 +1,8 @@
+/**
+ * i18next setup, imported for its side effect by main.tsx. Strings load over
+ * HTTP from public/locales/<lang>/translation.json; the language comes from
+ * `?lng=` or the browser, and is not cached.
+ */
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import HttpBackend from "i18next-http-backend";
@@ -26,6 +31,7 @@ export const supportedLanguages = [
   "vi",
 ] as const;
 
+/** One of the wired locale codes. */
 export type SupportedLanguage = (typeof supportedLanguages)[number];
 
 void i18n
@@ -40,4 +46,5 @@ void i18n
     detection: { order: ["querystring", "navigator"], caches: [] },
   });
 
+/** The initialised instance; components use `useTranslation()` instead. */
 export default i18n;
