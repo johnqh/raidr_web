@@ -330,7 +330,7 @@ export function Repos() {
       title={t("repos.title")}
       lede={t("repos.lede")}
     >
-      <div className="grid gap-px overflow-hidden rounded-sm border border-foreground/10 bg-foreground/10 [&>*]:min-w-0 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px overflow-hidden rounded-sm border border-foreground/10 bg-foreground/10 [&>*]:min-w-0 sm:grid-cols-2 lg:grid-cols-5">
         {repos.map((repo) => (
           <a
             key={repo.name}
@@ -340,7 +340,7 @@ export function Repos() {
             <h3 className="font-mono text-[13px] text-foreground group-hover:text-primary">
               {repo.name}
             </h3>
-            <p className="mt-3 text-[14px] leading-relaxed text-foreground/55">
+            <p className="mt-3 text-[14px] leading-relaxed text-foreground/55 [overflow-wrap:anywhere]">
               {t(`repos.${repo.key}`)}
             </p>
             <span className="mt-4 inline-block font-cond text-[10px] uppercase tracking-plate text-foreground/30 group-hover:text-foreground/60">
